@@ -3,5 +3,7 @@ findBtn.addEventListener('click', generateList);
 
 function generateList()
 {
-    console.log('you click on search btn')
+    let txtSearch = document.getElementById('search-txt').value;
+    console.log(txtSearch)
+
 }
