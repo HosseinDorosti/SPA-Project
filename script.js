@@ -56,7 +56,33 @@ function getMovieInfo(e){
         console.log(url)
         fetch(url)
         .then(response => response.json())
+         console.log(response)
         //.then(data => movieModal(data.movie));
-        //console.log(mealItem.dataset.id)
+        //console.log(data)
     }
+}
+
+// create a modal
+function movieModal(movie){
+    console.log(movie);
+    movie = movie[0];
+    let html = `
+        <h2 class = "movie-title">${movie.Title}</h2>
+        <p class = "movie-year">${movie.Year}</p>
+        <div class = "movie-Genre">
+            <h3>Genre : ${movie.Genre}</h3>
+            <h4>Director : ${movie.Director}</h4>
+            <h3>Plot:</h3>
+            <p>${movie.Plot}</p>
+            <h4>Product of : ${movie.Country}</h4>
+            <h4>Awards : ${movie.Awards}</h4>
+            <h4>Ratings : ${movie.Ratings}</h4>
+            <h4>BoxOffice : ${movie.BoxOffice}</h4>
+        </div>
+        <div class = "movie-img">
+            <img src = "${movie.Poster}" alt = "">
+        </div>
+    `;
+    detailsContent.innerHTML = html;
+    detailsContent.parentElement.classList.add('showDetails');
 }
