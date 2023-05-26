@@ -3,12 +3,15 @@ findBtn.addEventListener('click', generateList);
 const apiID='tt3896198'
 const apiKey='9f1dc6dd'
 const movieList = document.getElementById('movie');
+const detailsContent = document.querySelector('.details-content');
+movieList.addEventListener('click', getMovieInfo);
+const closeBtn = document.getElementById('close-btn');
 
 function generateList()
 {
     let txtSearch = document.getElementById('search-txt').value;
-    const url=`http://www.omdbapi.com/?i=${apiID}&apikey=${apiKey}&s=${txtSearch}`
-    console.log(url)
+    const url=`http://www.omdbapi.com/?&apikey=${apiKey}&s=${txtSearch}`
+    //console.log(url)
     fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -20,7 +23,7 @@ function generateList()
         html=`<h3>${data.totalResults} found</h3>`
             data.Search.forEach(search => {
                 html += `
-                    <div class = "movie-item" data-id = "${search.imdbID}">
+                    <div class = "movie-item" id = "${search.imdbID}">
 
                         <div class = "movie-img">
                             <img src = "${search.Poster}" alt = ${search.Title}">
@@ -40,4 +43,20 @@ function generateList()
 
         movieList.innerHTML = html; 
     });
+}
+
+
+// exctract movie details
+function getMovieInfo(e){
+    e.preventDefault();
+    if(e.target.classList.contains('movieBtn')){
+        //console.log(e.target.parentElement.parentElement)
+        let imdbID = e.target.parentElement.parentElement.id;
+        const url=`http://www.omdbapi.com/?&apikey=${apiKey}&i=${imdbID}`
+        console.log(url)
+        fetch(url)
+        .then(response => response.json())
+        //.then(data => movieModal(data.movie));
+        //console.log(mealItem.dataset.id)
+    }
 }
