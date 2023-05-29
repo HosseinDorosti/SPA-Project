@@ -77,72 +77,18 @@ function getMovieInfo(e){
 // create a modal
 function movieModal(movie){
     
-    alert('movie')
+    
      let movieinfo = `
-            Title">${movie.Title}
-            <p class = "movie-year">${movie.Year}</p>
-            <div class = "movie-Genre">
-                <h3>Genre : ${movie.Genre}</h3>
-                <h4>Director : ${movie.Director}</h4>
-                <h3>Plot:</h3>
-                <p>${movie.Plot}</p>
-                <h4>Product of : ${movie.Country}</h4>
-                <h4>Awards : ${movie.Awards}</h4>
-                <h4>Ratings : ${movie.Ratings}</h4>
-                <h4>BoxOffice : ${movie.BoxOffice}</h4>
-            </div>
+            Title:${movie.Title}
+            Year:${movie.Year}
+            Genre:${movie.Genre}
+            Director : ${movie.Director}
+            Product of : ${movie.Country}
+            Awards : ${movie.Awards}
+            BoxOffice : ${movie.BoxOffice}
+            Plot:
+                ${movie.Plot}        
              `;
+             alert(movieinfo)
     
-    const detailsContent = document.querySelector('.movie-details-content');
-
-   
-    detailsContent.innerHTML = html;
-  
-    detailsContent.parentElement.classList.add('showDetails');
-   
 }
-// function movieModal(movie){
-//     console.log('movie',movie)
-//     //movie = movie[0];        
-//     let html = `
-        
-//             <h2 class = "movie-title">${movie.Title}</h2>
-//             <p class = "movie-year">${movie.Year}</p>
-//             <div class = "movie-Genre">
-//                 <h3>Genre : ${movie.Genre}</h3>
-//                 <h4>Director : ${movie.Director}</h4>
-//                 <h3>Plot:</h3>
-//                 <p>${movie.Plot}</p>
-//                 <h4>Product of : ${movie.Country}</h4>
-//                 <h4>Awards : ${movie.Awards}</h4>
-//                 <h4>Ratings : ${movie.Ratings}</h4>
-//                 <h4>BoxOffice : ${movie.BoxOffice}</h4>
-//             </div>
-            
-            
-        
-//     `;
-    
-//     const detailsContent = document.querySelector('.movie-details-content');
-
-//     //console.log('html',html);
-//     //<button type="button" onclick="closePopup()">OK </button>
-//     //<div class = "popup img">
-//     // <img src = "${movie.Poster}" alt = "">
-//     // </div>
-//     detailsContent.innerHTML = html;
-//     // detailshow=!detailshow;
-//     // detailsContent.classList.toggle('hide',detailshow)
-//     //console.log(detailshow,detailsContent)
-//     detailsContent.parentElement.classList.add('showDetails');
-//     //popup.classList.add("open-popup");
-// }
-
-
-// function openPopup(){
-//     popup.classList.add("open-popup");
-// }
-
-// function closePopup(){
-//     popup.classList.remove("open-popup");
-// }
